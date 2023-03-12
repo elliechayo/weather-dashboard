@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="./style.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+    <!-- app title -->
+    <header>
+        <h2>Weather Dashboard</h2>
+    </header>
+    <main class="container">
+        <aside class="search-bar">
+            <!--form input/search section-->
+            <form id="searchForm">
+                <h3>Search for a city</h3>
+                <input type="text" id="cityInput" placeholder="Enter a city name...">
+                <button type="submit" class="submit-btn">Search</button>
+            </form>
+            <ul id="historyUl">
+
+            </ul>
+
+             </aside>
+             <!--current weather condistions section-->
+        <div class="results-section">
+            <div class="today">
+                <h2 id="cityName"></h2>
+                <div id="todaySection"></div>
+                <!-- <div class="weather-card">
+                    <h3 class="date">03/10/2023</h3>
+                    <p>Temp: 44</p>
+                    <p>Wind: 84</p>
+                    <p>Humidity: 72%</p>
+                </div> -->
+            </div>
+            <!--future weather condistions section-->
+            <div class="future">
+                <h2>5 Day Forecast</h2>
+                <!--5 day weather cards container-->
+                <div id="futureSection"></div>
+            </div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
