@@ -1,0 +1,128 @@
+
+
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: "Poppins", sans-serif;
+   }
+   
+   header {
+     padding: 20px 0;
+     background: linear-gradient(to right, rgb(5, 5, 90), rgb(4, 89, 168));
+   }
+   
+   header h2 {
+     text-align: center;
+     font-size: 32px;
+     font-weight: 900;
+     color: white;
+     letter-spacing: 3px;
+     text-transform: uppercase;
+   }
+   
+   .container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding-top: 30px;
+     display: flex;
+   }
+   
+   .search-bar {
+     background: white;
+     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
+     border-radius: 5px;
+     padding: 1em;
+     max-width: 300px;
+     width: 100%;
+   }
+   
+   .results-section {
+     margin-left: 30px;
+     flex: 1;
+   }
+   
+   #searchForm {
+     display: flex;
+     flex-direction: column;
+   }
+   
+   #searchForm h3 {
+     font-weight: 300;
+     text-align: center;
+     margin-bottom: 5px;
+   }
+   
+   #cityInput,
+   .submit-btn {
+     border: none;
+     outline: none;
+     padding: 12px;
+     margin: 5px 0;
+     border-radius: 5px;
+   }
+   
+   #cityInput {
+     border: 1px solid lightgray;
+   }
+   
+   .submit-btn {
+     cursor: pointer;
+     background: linear-gradient(to right, rgb(5, 5, 90), rgb(4, 89, 168));
+     color: white;
+   }
+   
+   #historyUl {
+     border-top: 1px solid lightgray;
+     margin-top: 10px;
+   }
+   
+   .today {
+     background: white;
+     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
+     padding: 10px;
+     border-radius: 5px;
+   }
+   
+   .weather-card {
+     padding: 10px 0;
+   }
+   
+   .weather-card .date {
+     margin-bottom: 10px;
+   }
+   
+   .weather-card p {
+     margin-top: 5px;
+   }
+   
+   .future {
+     margin-top: 20px;
+   }
+   
+   #futureSection {
+     display: flex;
+     justify-content: space-between;
+     color: white;
+     margin-top: 10px;
+   }
+   
+   #futureSection div {
+     border-radius: 5px;
+     margin: 0 5px;
+     background: rgb(42, 42, 71);
+     width: 100%;
+     padding: 10px;
+   }
+   
+   #historyUl li {
+     text-transform: capitalize;
+     list-style: none;
+     margin: 10px 0;
+     text-align: center;
+     background: lightgray;
+     padding: 8px 0;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+   
