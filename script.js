@@ -54,7 +54,7 @@ const showWeather = async (city) => {
      updateWeatherInfo(weatherForecast);
    };
    
-   // convert the weather info to JSON string and add it to local storage
+   // convert the weather info to JSON string and add it to local storage to be displayed in history search
    const addToLS = (val) => {
      const history = JSON.parse(localStorage.getItem("weatherHistory"));
      val = val.toLowerCase();
@@ -84,28 +84,29 @@ const getRequiredFields = (data, idx) => {
    };
 //html elements 
 // create HTML for the elements to append to the weather card section
-const createWeatherCard = ({ date, iconUrl, temp, wind, humidity }) => {
-     const div = document.createElement("div");
-     div.classList.add("weather-card");
-     const h3 = document.createElement("h3");
-     h3.classList.add("date");
-     h3.innerText = date;
-     const img = document.createElement("img");
-     img.src = iconUrl;
-     const temp_p = document.createElement("p");
-     temp_p.innerText = `Temp: ${temp}F`;
-     const wind_p = document.createElement("p");
-     wind_p.innerText = `Wind: ${wind} MPH`;
-     const humidity_p = document.createElement("p");
-     humidity_p.innerText = `Humidity: ${humidity}%`;
-     div.append(h3, img, temp_p, wind_p, humidity_p);
-     return div;
-   };
+       const createWeatherCard = ({ date, iconUrl, temp, wind, humidity }) => {
+       const div = document.createElement("div");
+       div.classList.add("weather-card");
+       const h3 = document.createElement("h3");
+       h3.classList.add("date");
+       h3.innerText = date;
+       const img = document.createElement("img");
+       img.src = iconUrl;
+       const temp_p = document.createElement("p");
+       temp_p.innerText = `Temp: ${temp}F`;
+       const wind_p = document.createElement("p");
+       wind_p.innerText = `Wind: ${wind} MPH`;
+       const humidity_p = document.createElement("p");
+       humidity_p.innerText = `Humidity: ${humidity}%`;
+       div.append(h3, img, temp_p, wind_p, humidity_p);
+       return div;
+     };
    
    // seconds to date string
 const secondsToDateText = (secs) => {
      return new Date(secs * 1000).toLocaleDateString();
    };
+   
 
    // set weather representation icons
    const createIconUrl = (icon) => {
@@ -153,7 +154,7 @@ const createHistoryCard = (txt) => {
    async function main() {
      searchForm.addEventListener("submit", handleFormSubmit);
      // by default, show the weather data for the city Atlanta
-     await showWeather("");
+     await showWeather("New York");
      // on startup, fetch the data from local storage and create history card
      const history = JSON.parse(localStorage.getItem("weatherHistory"));
      if (!history) {
