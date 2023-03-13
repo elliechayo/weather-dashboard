@@ -95,7 +95,7 @@ Upload the application files to a webserver.
 The following image shows the web application appearance and functionality once deployed:
 
 
-![initial disply](/Assests/weather%20app%20deployed%20app%20image.png)
+![initial disply](/Assests/weather-app-deployed-image.png)
 
 
 
