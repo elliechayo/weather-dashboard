@@ -154,7 +154,7 @@ const createHistoryCard = (txt) => {
    async function main() {
      searchForm.addEventListener("submit", handleFormSubmit);
      // by default, show the weather data for the city Atlanta
-     await showWeather("New York");
+     await showWeather("Atlanta");
      // on startup, fetch the data from local storage and create history card
      const history = JSON.parse(localStorage.getItem("weatherHistory"));
      if (!history) {
