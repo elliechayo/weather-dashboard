@@ -43,7 +43,7 @@ const getLatAndLon = async (cityname) => {
    
    // given a city name, get the latitude and longitude
   // then fetch the weather data for that lat and lon
-const showWeather = async (city) => {
+  const showWeather = async (city) => {
      const { name, lat, lon } = await getLatAndLon(city);
      if (!name || !lat || !lon) {
        alert("Something went wrong");
@@ -64,12 +64,13 @@ const showWeather = async (city) => {
        createHistoryCard(val);
      }
    };
-
    // there will be a lot of unnecessary data returned by the API
   // parse the required fields and return it.
-const getRequiredFields = (data, idx) => {
+     const getRequiredFields = (data, idx) => {
      const today = data.list[idx];
-     const date = today.dt_txt.split(" ")[0];
+     let date = today.dt_txt.split(" ")[0];
+     date = new Date(date);
+     date = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
      const iconUrl = createIconUrl(today.weather[0].icon);
      const temp = today.main.temp;
      const wind = today.main.humidity;
@@ -82,46 +83,48 @@ const getRequiredFields = (data, idx) => {
        humidity,
      };
    };
+
 //html elements 
 // create HTML for the elements to append to the weather card section
-       const createWeatherCard = ({ date, iconUrl, temp, wind, humidity }) => {
-       const div = document.createElement("div");
-       div.classList.add("weather-card");
-       const h3 = document.createElement("h3");
-       h3.classList.add("date");
-       h3.innerText = date;
-       const img = document.createElement("img");
-       img.src = iconUrl;
-       const temp_p = document.createElement("p");
-       temp_p.innerText = `Temp: ${temp}F`;
-       const wind_p = document.createElement("p");
-       wind_p.innerText = `Wind: ${wind} MPH`;
-       const humidity_p = document.createElement("p");
-       humidity_p.innerText = `Humidity: ${humidity}%`;
-       div.append(h3, img, temp_p, wind_p, humidity_p);
-       return div;
-     };
+     const createWeatherCard = ({ date, iconUrl, temp, wind, humidity }) => {
+     const div = document.createElement("div");
+     div.classList.add("weather-card");
+     const h3 = document.createElement("h3");
+     h3.classList.add("date");
+     h3.innerText = date;
+     const img = document.createElement("img");
+     img.src = iconUrl;
+     const temp_p = document.createElement("p");
+     temp_p.innerText = `Temp: ${temp}F`;
+     const wind_p = document.createElement("p");
+     wind_p.innerText = `Wind: ${wind} MPH`;
+     const humidity_p = document.createElement("p");
+     humidity_p.innerText = `Humidity: ${humidity}%`;
+     div.append(h3, img, temp_p, wind_p, humidity_p);
+     return div;
+   };
+   
    
    // seconds to date string
-const secondsToDateText = (secs) => {
+     const secondsToDateText = (secs) => {
      return new Date(secs * 1000).toLocaleDateString();
    };
    
 
    // set weather representation icons
-   const createIconUrl = (icon) => {
+     const createIconUrl = (icon) => {
      return `https://openweathermap.org/img/wn/${icon}.png`;
    };
 
    // given a weather data, create a weather card and append it to the todaySection
-const updateTodaySection = (data) => {
+     const updateTodaySection = (data) => {
      todaySection.innerHTML = "";
      const div = createWeatherCard(getRequiredFields(data, 0));
      todaySection.append(div);
    };
    
    // given weather data, create weather cards and append it to the futureSection
-   const updateFutureSection = (data) => {
+     const updateFutureSection = (data) => {
      futureSection.innerHTML = "";
      let idx = 0;
      for (let i = 0; i < 5; i++) {
@@ -130,13 +133,14 @@ const updateTodaySection = (data) => {
        futureSection.append(div);
      }
    };
-   
+
    const updateWeatherInfo = (data) => {
      updateTodaySection(data);
      updateFutureSection(data);
-   }
+   };
+
    // returns HTML for the element in the history section
-const createHistoryCard = (txt) => {
+   const createHistoryCard = (txt) => {
      let li = document.createElement("li");
      li.innerText = txt;
      li.addEventListener("click", async () => await showWeather(txt));
@@ -148,14 +152,12 @@ const createHistoryCard = (txt) => {
      let val = cityInput.value;
      await showWeather(val);
      addToLS(val);
-     // reset the input value after fetching the data
      cityInput.value = "";
    };
+
    async function main() {
      searchForm.addEventListener("submit", handleFormSubmit);
-     // by default, show the weather data for the city Atlanta
      await showWeather("Atlanta");
-     // on startup, fetch the data from local storage and create history card
      const history = JSON.parse(localStorage.getItem("weatherHistory"));
      if (!history) {
        localStorage.setItem("weatherHistory", JSON.stringify([]));
