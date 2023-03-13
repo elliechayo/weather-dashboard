@@ -55,7 +55,7 @@ When a user clicks on any of the cities from the history tab, they are presented
 * Delineated sections by adding comments.
 
 ***A CSS code file***
-* Styled the app to give it a clean, polish and responsive user interface.
+* Added styles and media quaries to give app a clean, polish and responsive user interface.
 
 
 ***A JavaScript code file consists of the following:***
@@ -95,7 +95,7 @@ Upload the application files to a webserver.
 The following image shows the web application appearance and functionality once deployed:
 
 
-![initial disply](/Assests/weather-dashboard%20deployed%20app%20image.png)
+![initial disply](/Assests/weather%20app%20deployed%20app%20image.png)
 
 
 
