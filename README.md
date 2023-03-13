@@ -86,7 +86,7 @@ When a user clicks on any of the cities from the history tab, they are presented
 ## Installation:
 <hr>
 
-
+Upload the application files to a webserver.
 
 
 ## Preview
@@ -95,7 +95,7 @@ When a user clicks on any of the cities from the history tab, they are presented
 The following image shows the web application appearance and functionality once deployed:
 
 
-![initial disply]()
+![initial disply](/Assests/weather-dashboard%20deployed%20app%20image.png)
 
 
 
