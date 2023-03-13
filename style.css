@@ -1,4 +1,16 @@
+:root {
+     --white: #ffffff;
+     --gray: #d3d3d3;
+     --dark-blue: #060b60;
+     --light-blue: #084192;
+     --light-gray: #D2D1D1;
+     --dark-gray: #26232353;
 
+
+
+     
+
+}
 
 * {
      padding: 0;
@@ -9,14 +21,14 @@
    
    header {
      padding: 20px 0;
-     background: linear-gradient(to right, rgb(5, 5, 90), rgb(4, 89, 168));
+     background: linear-gradient(to right, var(--dark-blue), var(--light-blue));
    }
    
    header h2 {
      text-align: center;
      font-size: 32px;
      font-weight: 900;
-     color: white;
+     color: var(--white);
      letter-spacing: 3px;
      text-transform: uppercase;
    }
@@ -29,8 +41,8 @@
    }
    
    .search-bar {
-     background: white;
-     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
+     background: var(--white);
+     box-shadow: -2px 2px 5px var(--dark-gray);
      border-radius: 5px;
      padding: 1em;
      max-width: 300px;
@@ -63,25 +75,26 @@
    }
    
    #cityInput {
-     border: 1px solid lightgray;
+     border: 1px solid var(--light-gray);
    }
    
    .submit-btn {
      cursor: pointer;
-     background: linear-gradient(to right, rgb(5, 5, 90), rgb(4, 89, 168));
-     color: white;
+     background: linear-gradient(to right,var(--dark-blue), var(--light-blue));
+     color: var(--white);
    }
    
    #historyUl {
-     border-top: 1px solid lightgray;
+     border-top: 1px solid var(--gray);
      margin-top: 10px;
    }
    
    .today {
-     background: white;
-     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
+     background: var(white);
+     box-shadow: -2px 2px 10px var(--dark-gray);
      padding: 10px;
      border-radius: 5px;
+     margin: 10px;
    }
    
    .weather-card {
