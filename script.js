@@ -40,7 +40,6 @@ const getLatAndLon = async (cityname) => {
      }
    };
 
-   
    // given a city name, get the latitude and longitude
   // then fetch the weather data for that lat and lon
   const showWeather = async (city) => {
@@ -68,9 +67,7 @@ const getLatAndLon = async (cityname) => {
   // parse the required fields and return it.
      const getRequiredFields = (data, idx) => {
      const today = data.list[idx];
-     let date = today.dt_txt.split(" ")[0];
-     date = new Date(date);
-     date = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+     const date = secondsToDateText(today.dt);
      const iconUrl = createIconUrl(today.weather[0].icon);
      const temp = today.main.temp;
      const wind = today.main.humidity;
